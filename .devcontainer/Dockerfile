@@ -1,8 +1,9 @@
-FROM alpine:3.10.2
+FROM ubuntu:18.04
 
-RUN apk update && \
-    apk add gcc g++ gdb git make bash curl vim openssh-client
+RUN apt update && apt install -y git make curl
 
 RUN git clone https://github.com/sh19910711/dotfiles.git && \
     cd dotfiles && \
     make setup
+
+RUN apt update && apt install -y gcc g++ gdb
